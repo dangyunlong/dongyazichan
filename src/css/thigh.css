@@ -1,0 +1,33 @@
+/*index*/
+.body {background: #f7f7f7;padding-top: 30px; padding-bottom: 30px;}
+.main-box {width: 1200px; margin: 0 auto; clear: both; overflow: hidden;}
+.mainbody {width: 1200px; background: #fff; box-sizing: border-box; padding-left: 30px; padding-top: 20px;padding-right: 30px; padding-bottom: 30px;}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #a4a4a4;}
+input:-moz-placeholder, textarea:-moz-placeholder {color:#a4a4a4;}
+input::-moz-placeholder, textarea::-moz-placeholder {color:#a4a4a4;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color:#a4a4a4;}
+/*main*/
+.regtitle {height: 36px;border-bottom: 2px #b78c6b solid; padding-left: 15px; font-size: 18px; background: url(../images/login/line.png) no-repeat 0 5px;}
+.tg-tab {height: 90px; line-height: 90px;background: #fff; margin-bottom: 18px; padding-left: 20px;}
+.tg-tab a {display: inline-block; width: 134px; height: 40px; line-height: 40px; color:#b78c6b; border: 1px solid #b78c6b; border-radius: 5px; text-align: center; text-decoration: none; margin-right: 10px;}
+.tg-tab a.select {background: #b78c6b; color: #fff;}
+.tg-tab a:hover {background: #b78c6b; color: #fff;}
+.searchbtn {background: #b78c6b; border: 0; width: 40px; line-height: 40px;}
+.searchbox input[type=text] {font-size: 14px; padding: 9px 5px; width: 230px;}
+.tg-title {clear: both; overflow: hidden;}
+.rightbox {height: 40px; line-height: 40px;}
+.rightbox a {background: #b78c6b;height: 40px; display: inline-block; padding: 0 10px; border-radius: 5px; color: #fff; text-decoration: none;}
+.tg-body table {width: 100%; margin-top: 20px;}
+.tg-body table td {color: #231815; height: 40px; line-height: 40px; padding-left: 20px;}
+.tg-body table thead td {background: #f7f7f7;} 
+.tg-body table tbody td a {background: #ff4400; color: #fff; width: 54px; height: 26px; line-height: 26px; border-radius: 5px; padding: 0 10px; display: inline-block; text-decoration: none;} 
+.tg-body table tbody td {border-bottom: 1px dotted #d2d2d2;}
+.tg-body table tbody tr:hover td{background: #fafafa;}
+/*page*/
+.pagination li a {border:0; color: #6e6e6e;}
+.pagination li.active a{ background: #b88c6b; color: #fff;}
+.pagination li.prepage a,.pagination li.nextpage a{color:#b0b0b0;border:1px solid #ececec;}
+.pagination li.prepage a:hover,.main .pagination li.nextpage a:hover {color:#787878;}
+.pagination li.prepage a {margin-right: 10px;}
+.text-center {text-align: center;}
+.pagination {margin-bottom: 0;}

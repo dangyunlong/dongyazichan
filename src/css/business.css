@@ -1,0 +1,32 @@
+/*index*/
+.banner {background:url(../images/business/banner.jpg) no-repeat top center; height: 350px; width: 100%;}
+/*main*/
+.main-box {width: 100%; background: #f6f6f6; padding-top: 10px; padding-bottom: 10px;}
+.main {background:#fff;width:1200px;margin: 0 auto; padding: 30px 100px 80px 100px; background:#fff}
+.news-box {height: 80px; line-height: 80px; clear: both; overflow: hidden; border-bottom: 1px solid #e6e6e6; position: relative;}
+.news-line li a.mainColor {color: #b88c6b;}
+.news-line li {float: left; width: 20%; text-align: center;}
+.news-line li a {display: block; text-decoration: none; color: #4c4c4c; font-size: 16px;}
+.box-line {width: 178px; background: #b88c6b ;height: 3px; position: absolute; bottom: 0;}
+.txt .title {padding: 38px; padding-bottom: 10px; text-align: left; padding-left: 0;}
+.txt .title p{margin-top: 0;font-size: 16px; color: #404040; text-align: left; text-indent: 0;color: #404040; text-indent: 0;}
+.txt p {font-size: 14px; margin-top:10px ; text-indent: 2em; color:#737373 ;}
+.lastp {margin-bottom: 20px;}
+.txt p:last-child {margin-bottom: 0;}
+/*banner*/
+.slideBox{width:100%; height:650px; overflow:hidden; position:relative;}
+.slideBox .hd{height:15px;overflow:hidden;position:absolute; right:5px; bottom:5px; z-index:1; width: 100%; text-align: center;}
+.slideBox .hd ul{overflow:hidden;zoom:1; margin: 0 auto; width: 150px;}
+.slideBox .hd ul li{float:left;margin-right:2px;width:40px;height:10px;line-height:14px;text-align:center; background: rgba(255,255,255,0.5); cursor:pointer;border-radius: 5px; margin-right: 10px;}
+.slideBox .hd ul li.on{color:#fff;background:#fff}
+.slideBox .bd{ position:relative; height:100%;z-index:0;}
+.slideBox .bd li{zoom:1;vertical-align:middle}
+.slideBox .bd img{width:100%; height:650px;display:block;}
+
+/*page*/
+.main .pagination li a {border:0; color: #6e6e6e;}
+.main .pagination li.active a{ background: #b88c6b; color: #fff;}
+.main .pagination li.prepage a,.main .pagination li.nextpage a{color:#b0b0b0;border:1px solid #ececec;}
+.main .pagination li.prepage a:hover,.main .pagination li.nextpage a:hover {color:#787878;}
+.main .pagination li.prepage a {margin-right: 10px;}
+.text-center {text-align: center;}

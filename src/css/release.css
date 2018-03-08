@@ -1,0 +1,30 @@
+/*index*/
+.body {background: #f7f7f7;padding-top: 30px; padding-bottom: 30px;}
+.main-box {width: 1000px; margin: 0 auto; clear: both; overflow: hidden;}
+.rightbody {width: 1000px;background: #fff; box-sizing: border-box; padding-left: 30px; padding-top: 35px; padding-bottom: 35px; padding-right: 30px;}
+.rigthmain {clear: both; overflow: hidden;width:378px;margin:0 auto;}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #a4a4a4;}
+input:-moz-placeholder, textarea:-moz-placeholder {color:#a4a4a4;}
+input::-moz-placeholder, textarea::-moz-placeholder {color:#a4a4a4;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color:#a4a4a4;}
+/*right*/
+.rb-title {height: 42px;border-bottom: 1px #dbdbdb solid; padding-left: 15px; font-size: 18px; background: url(../images/user/line.png) no-repeat 0 5px;}
+/*修改密码*/
+.subbox {width:378px; margin:0 auto;}
+.subbox table {width: 400px;}
+.subbox table td {padding-bottom: 33px;color:#353535; position: relative;}
+.subbox table td input {width: 240px; border: 1px solid #c9c9c9;border-radius: 5px; padding: 10px 8px; margin-left: 20px; font-size: 12px;}
+.subbox table td input.imgbox {width: 138px; border: 1px solid #c9c9c9;border-radius: 5px; padding: 10px 8px;}
+.subbox table td input.yzm { width: 98px; margin-left: 0; color:#b78c6b; background: none; padding: 10px 8px;}
+.subbox table td input[type=checkbox] {width: auto; margin: 0; padding: 0; margin-left: 20px;}
+.error {color: red; position: absolute; display: block; width: 100%; top: 45px; display: none;left: 29px; font-size: 12px;}
+.codebox {width:374px; text-align: center; margin-top:57px; font-size: 16px ; color: #353535;}
+.codebox img {margin-bottom: 10px;}
+.subbox table td input.subbtn {background: #b78c6b;color: #fff; border: 0;font-size: 18px;padding: 9px 8px;}
+.xy {padding-bottom: 0;}
+.xy span {display: inline-block; vertical-align: middle;}
+.xy label {font-weight: normal; font-size: 12px;}
+.regtitle {height: 42px;border-bottom: 2px #b78c6b solid; padding-left: 15px; font-size: 18px; background: url(../images/login/line.png) no-repeat 0 5px;}
+.subbox table td.radiobox input{width: auto;}
+.subbox table td.radiobox label {font-weight: normal; margin-bottom: 0;}
+.subbox table td.radiobox span {display: inline-block; vertical-align: middle;}

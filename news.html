@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新闻中心</title>
+		<link rel="stylesheet" type="text/css" href="src/js/bootstrap/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="src/css/news.css"/>
+		<script src="src/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/superslide/SuperSlide.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/laypage/laypage.js"></script>
+	</head>
+	<body>
+		<!--head start-->
+
+		<header class="header">
+			<div class="loginbar">
+				<div class="barbox">
+					<div class="floatleft">
+						客服热线：<span class="number">400-806-1886</span>
+					</div>
+					<div class="floatright">
+						您好，欢迎来到东亚资产！ 
+						<a href="login.html" class="login">登录</a><span class="fffcolor">|</span> 
+						<a href="register.html">免费注册</a>
+						<a href="novice.html" class="mg40">新手指引</a>
+						<a href="contact.html" class="mg24">关于我们</a>
+					</div>
+				</div>
+			</div>
+			<div class="header-box">
+				<a href="index.html"><img src="src/images/index/logo.png" alt="logo" class="logo"/></a>
+				<nav class="nav-box">
+					<ul class="nav-main" id="nav-main">
+						<li data-num="0"><a href="index.html">首页</a></li>
+						<li data-num="1"><a href="about.html">公司简介</a></li>
+						<li data-num="2">
+							<a href="business.html">业务板块</a>
+							<ul>
+								<li><a href="plate1.html">家族财富及全权委托投资</a></li>
+								<li><a href="plate2.html">资产管理业务</a></li>
+								<li><a href="plate3.html">财富管理业务</a></li>
+								<li><a href="plate4.html">二级市场</a></li>
+								<li><a href="plate5.html" class="noborder">互联网金融业务</a></li>
+							</ul>
+						</li>
+						<li data-num="3"><a href="shares.html">新三板</a></li>
+						<li data-num="4"><a href="wealth.html">财富中心</a></li>
+						<li data-num="5"><a href="news.html" class="mainColor">新闻中心</a></li>
+						<li data-num="6"><a href="personnel.html">人才招聘</a></li>
+						<li data-num="7"><a href="contact.html">联系我们</a></li>
+					</ul>
+					<div class="nav-line" id="navLine" style="left: 525px;"></span>
+				</nav>
+			</div>
+		</header>
+		<!--head end-->
+		
+		<!--body start-->
+		<article class="body">
+			<!--banner start-->
+			<div class="banner"></div>
+			<div class="line"></div>
+			<!--banner end-->
+			<!--main start-->
+			<div class="main-box">
+				<div class="main">
+					<div class="news-box">
+						<ul class="news-line">
+							<li><a href="news-plate1.html" data-num="82" class="mainColor">公司新闻</a></li>
+							<li><a href="news-plate2.html" data-num="332">协会新闻</a></li>
+							<li><a href="news-plate3.html" data-num="582">新三板新闻</a></li>
+							<li><a href="news-plate4.html" data-num="832">法律法规</a></li>
+						</ul>
+						<div class="box-line" id="boxline" style="left:82px;"></div>
+					</div>
+					<div class="clear"> 
+						<ul class="ul-box" id="ul-box">
+							<!--<li>
+								<a href="show.html">
+									<div class="floatleft news-imgbox">
+										<img src="src/images/news/news1.png" width="190" height="120"/>
+									</div>
+									<div class="floatleft news-txtbox">
+										<p class="title">关于2017年度基金业从业人员年检的通知</p>
+										<p class="time">2017年11月17日</p>
+										<p class="txt">各机构：根据基金业从业人员资格管理相关要求对从业人员进行年检的规定，中国证券投资基金业协会（以下简称协会）将开展2017年度基金业从业人员年检。</p>
+									</div>
+								</a>
+							</li>-->
+						</ul>
+						<div id="pagination" style="text-align:center;padding-top:20px;"></div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(".news-line a").on("mouseenter",function(){
+					$(".news-line a").removeClass("mainColor");
+					$(this).addClass("mainColor");
+					$("#boxline").stop().animate({"left":$(this).attr("data-num")},180)
+				})
+				//测试数据
+				var data=[
+					/*{
+						"href":"show.html",
+						"img":"src/images/news/news1.png",
+						"title":"关于2017年度基金业从业人员年检的通知",
+						"time":"2017年11月17日",
+						"txt":"各机构：根据基金业从业人员资格管理相关要求对从业人员进行年检的规定，中国证券投资基金业协会（以下简称协会）将开展2017年度基金业从业人员年检。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news2.png",
+						"title":"私募机构做市业务试点专业评审顺利结束 10家私募机构入围",
+						"time":"2017年11月16日",
+						"txt":"近日，私募机构做市业务试点专业评审工作小组对私募做市业务试点专业评审申请材料进行了集中评审。来自证监会有关部门、中国证券投资基金业协会、中国结算以及全国股转公司的评审专家参与了评审打分。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news1.png",
+						"title":"关于2017年度基金业从业人员年检的通知",
+						"time":"2017年11月17日",
+						"txt":"各机构：根据基金业从业人员资格管理相关要求对从业人员进行年检的规定，中国证券投资基金业协会（以下简称协会）将开展2017年度基金业从业人员年检。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news2.png",
+						"title":"私募机构做市业务试点专业评审顺利结束 10家私募机构入围",
+						"time":"2017年11月16日",
+						"txt":"近日，私募机构做市业务试点专业评审工作小组对私募做市业务试点专业评审申请材料进行了集中评审。来自证监会有关部门、中国证券投资基金业协会、中国结算以及全国股转公司的评审专家参与了评审打分。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news1.png",
+						"title":"关于2017年度基金业从业人员年检的通知",
+						"time":"2017年11月17日",
+						"txt":"各机构：根据基金业从业人员资格管理相关要求对从业人员进行年检的规定，中国证券投资基金业协会（以下简称协会）将开展2017年度基金业从业人员年检。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news2.png",
+						"title":"私募机构做市业务试点专业评审顺利结束 10家私募机构入围",
+						"time":"2017年11月16日",
+						"txt":"近日，私募机构做市业务试点专业评审工作小组对私募做市业务试点专业评审申请材料进行了集中评审。来自证监会有关部门、中国证券投资基金业协会、中国结算以及全国股转公司的评审专家参与了评审打分。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news1.png",
+						"title":"关于2017年度基金业从业人员年检的通知",
+						"time":"2017年11月17日",
+						"txt":"各机构：根据基金业从业人员资格管理相关要求对从业人员进行年检的规定，中国证券投资基金业协会（以下简称协会）将开展2017年度基金业从业人员年检。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news2.png",
+						"title":"私募机构做市业务试点专业评审顺利结束 10家私募机构入围",
+						"time":"2017年11月16日",
+						"txt":"近日，私募机构做市业务试点专业评审工作小组对私募做市业务试点专业评审申请材料进行了集中评审。来自证监会有关部门、中国证券投资基金业协会、中国结算以及全国股转公司的评审专家参与了评审打分。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news1.png",
+						"title":"关于2017年度基金业从业人员年检的通知",
+						"time":"2017年11月17日",
+						"txt":"各机构：根据基金业从业人员资格管理相关要求对从业人员进行年检的规定，中国证券投资基金业协会（以下简称协会）将开展2017年度基金业从业人员年检。"
+					},
+					{
+						"href":"show.html",
+						"img":"src/images/news/news2.png",
+						"title":"私募机构做市业务试点专业评审顺利结束 10家私募机构入围",
+						"time":"2017年11月16日",
+						"txt":"近日，私募机构做市业务试点专业评审工作小组对私募做市业务试点专业评审申请材料进行了集中评审。来自证监会有关部门、中国证券投资基金业协会、中国结算以及全国股转公司的评审专家参与了评审打分。"
+					},*/
+				]
+				//分页
+				var nums = 2; //每页出现的数量
+				var pages = Math.ceil(data.length/nums); //得到总页数
+				var thisDate = function(curr){
+				    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+				    var str = '',
+				    last = curr*nums - 1;
+				    last = last >= data.length ? (data.length-1) : last;
+				    for(var i = (curr*nums - nums); i <= last; i++){
+				    	
+				        str += "<li>"+"<a href="+data[i].href+"><div class='floatleft news-imgbox'>"+
+						"<img src="+data[i].img+" width='190' height='120'/></div>"+"<div class='floatleft news-txtbox'>"+
+						"<p class='title'>"+data[i].title+"</p>"+"<p class='time'>"+data[i].time+"</p>"+"<p class='txt'>"+	
+						data[i].txt+"</div></a></li>"		
+				        
+				    }
+				    return str;
+				};
+				//调用分页
+				laypage({
+				    cont: 'pagination',
+				    pages: pages,
+				    jump: function(obj){
+				        document.getElementById('ul-box').innerHTML = thisDate(obj.curr);
+				    }
+				})
+				
+				$(function(){
+					if($("#ul-box li").size()==0){
+						$("#pagination").hide();
+					}
+				})
+			</script>
+			<!--main end-->
+		</article>
+		<!--body end-->
+		
+		<!--footer start-->
+		<footer class="footer">
+			<div class="footer-box">
+				<div class="floatleft">
+					<a href="index.html" class="logo2"><img src="src/images/index/logo2.png"/></a>
+				</div>
+				<div class="floatleft">
+					<p>Copyright © 2017，All rights reserved. 丨 北京东亚资产资本管理有限公司 丨 京ICP备17008988号</p>
+					<p>电话：400-806-1886 <span>地址：北京市朝阳区化工路59号焦奥中心A座10层</span></p>
+				</div>
+			</div>
+		</footer>
+		<!--footer end-->
+	</body>
+</html>

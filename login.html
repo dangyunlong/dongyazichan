@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="src/js/bootstrap/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="src/css/login.css"/>
+		<script src="src/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--head start-->
+		<header class="header">
+			<div class="loginbar">
+				<div class="barbox">
+					<div class="floatleft">
+						客服热线：<span class="number">400-806-1886</span>
+					</div>
+					<div class="floatright">
+						您好，欢迎来到东亚资产！ 
+						<a href="login.html" class="login">登录</a><span class="fffcolor">|</span> 
+						<a href="register.html">免费注册</a>
+						<a href="novice.html" class="mg40">新手指引</a>
+						<a href="contact.html" class="mg24">关于我们</a>
+					</div>
+				</div>
+			</div>
+			<div class="header-box">
+				<a href="index.html"><img src="src/images/index/logo.png" alt="logo" class="logo"/></a>
+				<nav class="nav-box">
+					<ul class="nav-main" id="nav-main">
+						<li data-num="0"><a href="index.html" class="mainColor">首页</a></li>
+						<li data-num="1"><a href="about.html">公司简介</a></li>
+						<li data-num="2">
+							<a href="business.html">业务板块</a>
+							<ul>
+								<li><a href="plate1.html">家族财富及全权委托投资</a></li>
+								<li><a href="plate2.html">资产管理业务</a></li>
+								<li><a href="plate3.html">财富管理业务</a></li>
+								<li><a href="plate4.html">二级市场</a></li>
+								<li><a href="plate5.html" class="noborder">互联网金融业务</a></li>
+							</ul>
+						</li>
+						<li data-num="3"><a href="shares.html">新三板</a></li>
+						<li data-num="4"><a href="wealth.html">财富中心</a></li>
+						<li data-num="5"><a href="news.html">新闻中心</a></li>
+						<li data-num="6"><a href="personnel.html">人才招聘</a></li>
+						<li data-num="7"><a href="contact.html">联系我们</a></li>
+					</ul>
+					<div class="nav-line" id="navLine" style="left:0;"></span>
+				</nav>
+			</div>
+		</header>
+		<!--head end-->
+		
+		<!--body start-->
+		<article class="body">
+			<!--banner start-->
+			<div class="banner">
+				<div class="loginbox">
+					<div class="loginmainbox">
+						<div class="lg-title">
+							<span><img src="src/images/login/line.png"/></span>
+							<span>用户登录</span>
+						</div>
+						<form action="" class="loginform" id="loginform">
+							<div>
+								<span class="error">用户名或密码错误</span>
+								<input type="text" placeholder="请输入您的手机号码" class="long" name="id" id="id"/>
+							</div>
+							<div>
+								<span class="error">密码错误</span>
+								<input type="password" placeholder="请输登录密码" class="long" name="pass" id="pass"/>
+							</div>
+							<div>
+								<span class="error">验证码错误</span>
+								<input type="text" placeholder="请输入验证码" class="short" name="code" id="code"/>
+								<a href="javascript:void(0)" class="code"><img src="src/images/login/data.png"/></a>
+							</div>
+							<div class="lgtxt">
+								没有账户？<a href="register.html">立即注册</a><a href="password.html" class="floatright">忘记密码</a>
+							</div>
+							<input type="button" value="立即登录" class="lgbtn" onclick="sub()"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function sub(){
+					$.ajax({
+				        type:"post",
+				        url:"true.php",
+				        async:true,
+				        data:$("#loginform").serialize(),
+				        success:function(data){
+				        	//隐藏错误提示
+				        	$(".error").hide();
+				        	//判断返回值
+				            if(data=="true"){
+				            	//登录成功直接跳转
+				            	window.location.href="user-index.html"
+				            }else{
+				            	//显示用户名错误
+				            	$("#id").siblings(".error").show()
+				            	//显示密码错误
+				            	$("#pass").siblings(".error").show()
+				            	//显示验证码错误
+				            	$("#code").siblings(".error").show()
+				            }
+				        }
+				    });
+				}
+			</script>
+			<!--banner end-->
+		</article>
+		<!--body end-->
+		<!--footer start-->
+		<footer class="footer">
+			<div class="footer-box">
+				<div class="floatleft">
+					<a href="index.html" class="logo2"><img src="src/images/index/logo2.png"/></a>
+				</div>
+				<div class="floatleft">
+					<p>Copyright © 2017，All rights reserved. 丨 北京东亚资产资本管理有限公司 丨 京ICP备17008988号</p>
+					<p>电话：400-806-1886 <span>地址：北京市朝阳区化工路59号焦奥中心A座10层</span></p>
+				</div>
+			</div>
+		</footer>
+		<!--footer end-->
+	</body>
+</html>

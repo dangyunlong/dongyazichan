@@ -1,0 +1,19 @@
+/*index*/
+.banner {background:url(../images/login/banner.jpg) no-repeat top center; height: 550px; width: 100%;}
+.loginbox {width: 1200px; margin: 0 auto;clear: both; overflow: hidden;padding-bottom: 30px;}
+.loginmainbox {width: 400px;background: #ffffff; border-top:2px solid #b78c6b; float: right; margin-top: 60px; padding:26px 42px 32px 42px;box-sizing: border-box;box-shadow:0 5px 19px 1px rgba(76, 76, 76, 0.49);;margin-right: 20px;}
+.lg-title span{display: inline-block; vertical-align: middle; font-size: 18px;}
+.loginform input {padding: 17px 10px; box-sizing: border-box; font-size: 12px; border:1px solid #c9c9c9; border-radius: 5px; margin-bottom: 24px;}
+.loginform div {position: relative;}
+.loginform span.error {position: absolute; color:red; top: -20px; background: url(../images/login/error.png) no-repeat 0 1px; padding-left: 18px; display: none; font-size: 12px;}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #a4a4a4;}
+input:-moz-placeholder, textarea:-moz-placeholder {color:#a4a4a4;}
+input::-moz-placeholder, textarea::-moz-placeholder {color:#a4a4a4;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color:#a4a4a4;}
+.lg-title {margin-bottom: 35px;}
+.long {width: 100%;}
+.short {width: 193px;}
+.code {margin-left: 4px;}
+.lgtxt {padding-bottom: 10px;}
+.lgtxt a {color: #b78c6b;text-decoration: none;}
+.loginform input.lgbtn {width: 100%;height: 50px;background: #b78c6b;color: #fff;font-size: 18px; padding: 0; margin: 0;}

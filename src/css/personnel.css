@@ -1,0 +1,25 @@
+/*index*/
+.banner {background:url(../images/personnel/banner.jpg) no-repeat top center; height: 350px; width: 100%;}
+/*main*/
+.main-box {width: 100%; background: #f6f6f6; padding-top: 10px; padding-bottom: 10px;}
+.main {background:#fff;width:1200px;margin: 0 auto; padding: 30px 100px 80px 100px; background:#fff}
+.main p.title {font-size: 18px; color: #b88c6b; margin-bottom: 16px;}
+.main p.txt {color: #4c4c4c; line-height: 32px; font-size: 14px;}
+.main p.txt span {color: #b88c6b;} 
+.pro {border: 1px solid #dbc5b5; margin-top: 20px;}
+.pro-titlebox {background: #dbc5b5;}
+.pro-titlebox a {display: block; padding: 10px 14px; text-decoration: none;color: #666;}
+.pro-titlebox a img {display: block; margin-top: 5px;float: right;}
+.pro-txtbox {padding:30px 40px 0 40px;}
+.pro-txtbox p {margin-bottom: 15px;}
+.pro-txtbox p.lasttxt {margin-bottom: 35px;}
+.box-title {font-size: 14px; font-weight: bold;}
+/*banner*/
+.slideBox{width:100%; height:650px; overflow:hidden; position:relative;}
+.slideBox .hd{height:15px;overflow:hidden;position:absolute; right:5px; bottom:5px; z-index:1; width: 100%; text-align: center;}
+.slideBox .hd ul{overflow:hidden;zoom:1; margin: 0 auto; width: 150px;}
+.slideBox .hd ul li{float:left;margin-right:2px;width:40px;height:10px;line-height:14px;text-align:center; background: rgba(255,255,255,0.5); cursor:pointer;border-radius: 5px; margin-right: 10px;}
+.slideBox .hd ul li.on{color:#fff;background:#fff}
+.slideBox .bd{ position:relative; height:100%;z-index:0;}
+.slideBox .bd li{zoom:1;vertical-align:middle}
+.slideBox .bd img{width:100%; height:650px;display:block;}

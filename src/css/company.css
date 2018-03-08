@@ -1,0 +1,25 @@
+/*main*/
+.main-box {width: 100%; background: #f6f6f6; padding-top: 10px; padding-bottom: 10px;box-shadow: 0px 3px 6px #d4d4d4 inset;}
+.main {background:#fff;width:1200px;margin: 0 auto; padding: 30px 100px 80px 100px; background:#fff}
+.news-box {height: 80px; line-height: 80px; clear: both; overflow: hidden; border-bottom: 1px solid #e6e6e6; position: relative;}
+.news-line li a.mainColor {color: #b88c6b;}
+.news-line li {float: left; width: 25%; text-align: center;}
+.news-line li a {display: block; text-decoration: none; color: #4c4c4c; font-size: 16px;}
+.box-line {width: 84px; background: #b88c6b ;height: 3px; position: absolute; bottom: 0;}
+.ul-box li{padding-top: 36px; padding-bottom: 35px;border-bottom:1px dashed #e6e6e6}
+.ul-box li a {text-decoration: none; clear: both; overflow: hidden; display: block;}
+.news-imgbox {width: 230px;}
+.news-txtbox {width: 770px;}
+.title {font-size: 18px; color: #4c4c4c; margin-bottom: 10px; overflow: hidden; height: 24px;}
+.time {font-size: 14px; color: #4c4c4c; margin-bottom: 10px;}
+.txt {font-size: 14px; color: #999999; line-height: 31px; height: 62px; overflow: hidden;}
+.regtitle {height: 42px;border-bottom: 2px #b78c6b solid;padding-left: 30px;width: 1200px; margin: 0 auto; font-size: 22px; color:#b78c6b}
+.banner {width: 1200px; margin: 0 auto; margin-top: 10px; margin-bottom: 10px;}
+
+/*page*/
+.main .pagination li a {border:0; color: #6e6e6e;}
+.main .pagination li.active a{background: #b88c6b; color: #fff;}
+.main .pagination li.prepage a,.main .pagination li.nextpage a{color:#b0b0b0;border:1px solid #ececec;}
+.main .pagination li.prepage a:hover,.main .pagination li.nextpage a:hover {color:#787878;}
+.main .pagination li.prepage a {margin-right: 10px;}
+.text-center {text-align: center;}

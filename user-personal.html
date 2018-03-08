@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户中心-个人资料</title>
+		<link rel="stylesheet" type="text/css" href="src/js/bootstrap/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="src/css/user.css"/>
+		<script src="src/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/laypage/laypage.js"></script>
+		<script src="src/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--head start-->
+		<header class="header">
+			<div class="loginbar">
+				<div class="barbox">
+					<div class="floatleft">
+						客服热线：<span class="number">400-806-1886</span>
+					</div>
+					<div class="floatright">
+						您好，欢迎来到东亚资产！ 
+						<a href="user-index.html" class="login">zhaorongqi</a><span class="fffcolor">|</span> 
+						<a href="register.html">免费注册</a>
+						<a href="novice.html" class="mg40">新手指引</a>
+						<a href="contact.html" class="mg24">关于我们</a>
+					</div>
+				</div>
+			</div>
+			<div class="header-box">
+				<a href="index.html"><img src="src/images/index/logo.png" alt="logo" class="logo"/></a>
+				<nav class="nav-box">
+					<ul class="nav-main" id="nav-main">
+						<li data-num="0"><a href="index.html">首页</a></li>
+						<li data-num="1"><a href="about.html">公司简介</a></li>
+						<li data-num="2">
+							<a href="business.html">业务板块</a>
+							<ul>
+								<li><a href="plate1.html">家族财富及全权委托投资</a></li>
+								<li><a href="plate2.html">资产管理业务</a></li>
+								<li><a href="plate3.html">财富管理业务</a></li>
+								<li><a href="plate4.html">二级市场</a></li>
+								<li><a href="plate5.html" class="noborder">互联网金融业务</a></li>
+							</ul>
+						</li>
+						<li data-num="3"><a href="shares.html" class="mainColor">新三板</a></li>
+						<li data-num="4"><a href="wealth.html">财富中心</a></li>
+						<li data-num="5"><a href="news.html">新闻中心</a></li>
+						<li data-num="6"><a href="personnel.html">人才招聘</a></li>
+						<li data-num="7"><a href="contact.html">联系我们</a></li>
+					</ul>
+					<div class="nav-line" id="navLine" style="left:315px;"></span>
+				</nav>
+			</div>
+		</header>
+		<!--head end-->
+		
+		<!--body start-->
+		<article class="body">
+			<div class="main-box">
+				<div class="floatleft leftmenu">
+					<div>
+						<div class="lm-title">账户中心</div>
+						<div class="lmmain">
+							<a href="user-index.html">首页</a>
+							<a href="user-debt.html">股票转让</a>
+							<a href="user-order.html">我的预约</a>
+						</div>
+						<div class="lm-title">账户设置</div>
+						<div class="lmmain">
+							<a href="user-personal.html" class="select">个人资料</a>
+							<a href="user-password.html">修改密码</a>
+						</div>
+					</div>
+				</div>
+				<div class="floatright rightbody">
+					<div class="rb-title">个人资料</div>
+					<form id="userform">
+						<table class="rb-table">
+							<tr>
+								<td align="right">注册时间</td>
+								<td align="left">2018-12-12 09:20</td>
+							</tr>
+							<tr>
+								<td align="right">注册手机号</td>
+								<td align="left">139****1234</td>
+							</tr>
+							<tr>
+								<td align="right">登录密码</td>
+								<td align="left"><a href="#">修改密码</a></td>
+							</tr>
+							<tr>
+								<td align="right">姓名</td>
+								<td align="left">
+									<input type="text" value="赵荣其" placeholder="请输入姓名" name="name" id="name"/>
+									<span class="error2">请输入合法姓名</span>
+								</td>
+							</tr>
+							<tr>
+								<td align="right">性别</td>
+								<td align="left">
+									<span><input type="radio" id="nan" name="sex" checked="checked" /></span>
+									<span><label for="nan">男</label></span>
+									<span><input type="radio" id="nv" name="sex" /></span>
+									<span><label for="nv">女</label></span>
+								</td>
+							</tr>
+							<tr>
+								<td align="right">邮箱</td>
+								<td align="left">
+									<input type="text" value="zrq@qq.com"  placeholder="请输入邮箱" name="email" id="email"/>
+									<span class="error2">请输入正确的邮箱</span>
+								</td>
+							</tr>
+							<tr>
+								<td align="right">您的邀请码</td>
+								<td align="left">13019384847393</td>
+							</tr>
+						</table>
+						<input type="button" value="保存" onclick="sub()" class="subbtn2">
+					</form>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function sub(){
+					$.ajax({
+				        type:"post",
+				        url:"index.php",
+				        async:true,
+				        data:$("#userform").serialize(),
+				        success:function(data){
+				        	//隐藏错误提示
+				        	$(".error").hide();
+				        	//判断返回值
+				            if(data=="true"){
+				            	layer.msg('保存成功!');
+				            }else{
+				            	//姓名错误
+				            	$("#name").siblings(".error2").show()
+				            	//邮箱错误
+				            	$("#email").siblings(".error2").show()
+				            }
+				        }
+				    });
+				}
+			</script>
+		</article>
+		<!--body end-->
+		
+		<!--footer start-->
+		<footer class="footer">
+			<div class="footer-box">
+				<div class="floatleft">
+					<a href="index.html" class="logo2"><img src="src/images/index/logo2.png"/></a>
+				</div>
+				<div class="floatleft">
+					<p>Copyright © 2017，All rights reserved. 丨 北京东亚资产资本管理有限公司 丨 京ICP备17008988号</p>
+					<p>电话：400-806-1886 <span>地址：北京市朝阳区化工路59号焦奥中心A座10层</span></p>
+				</div>
+			</div>
+		</footer>
+		<!--footer end-->
+	</body>
+</html>

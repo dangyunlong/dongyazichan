@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>互联网金融业务</title>
+		<link rel="stylesheet" type="text/css" href="src/js/bootstrap/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="src/css/business.css"/>
+		<script src="src/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/superslide/SuperSlide.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--head start-->
+
+		<header class="header">
+			<div class="loginbar">
+				<div class="barbox">
+					<div class="floatleft">
+						客服热线：<span class="number">400-806-1886</span>
+					</div>
+					<div class="floatright">
+						您好，欢迎来到东亚资产！ 
+						<a href="login.html" class="login">登录</a><span class="fffcolor">|</span> 
+						<a href="register.html">免费注册</a>
+						<a href="novice.html" class="mg40">新手指引</a>
+						<a href="contact.html" class="mg24">关于我们</a>
+					</div>
+				</div>
+			</div>
+			<div class="header-box">
+				<a href="index.html"><img src="src/images/index/logo.png" alt="logo" class="logo"/></a>
+				<nav class="nav-box">
+					<ul class="nav-main" id="nav-main">
+						<li data-num="0"><a href="index.html">首页</a></li>
+						<li data-num="1"><a href="about.html">公司简介</a></li>
+						<li data-num="2">
+							<a href="business.html" class="mainColor">业务板块</a>
+							<ul>
+								<li><a href="plate1.html">家族财富及全权委托投资</a></li>
+								<li><a href="plate2.html">资产管理业务</a></li>
+								<li><a href="plate3.html">财富管理业务</a></li>
+								<li><a href="plate4.html">二级市场</a></li>
+								<li><a href="plate5.html" class="noborder">互联网金融业务</a></li>
+							</ul>
+						</li>
+						<li data-num="3"><a href="shares.html">新三板</a></li>
+						<li data-num="4"><a href="wealth.html">财富中心</a></li>
+						<li data-num="5"><a href="news.html">新闻中心</a></li>
+						<li data-num="6"><a href="personnel.html">人才招聘</a></li>
+						<li data-num="7"><a href="contact.html">联系我们</a></li>
+					</ul>
+					<div class="nav-line" id="navLine" style="left: 210px;"></span>
+				</nav>
+			</div>
+		</header>
+		<!--head end-->
+		
+		<!--body start-->
+		<article class="body">
+			<!--banner start-->
+			<div class="banner"></div>
+			<div class="line"></div>
+			<!--banner end-->
+			<!--main start-->
+			<div class="main-box">
+				<div class="main">
+					<div class="news-box">
+						<ul class="news-line">
+							<li><a href="plate1.html" data-num="11">家族财富及全权委托投资</a></li>
+							<li><a href="plate2.html" data-num="210">资产管理业务</a></li>
+							<li><a href="plate3.html" data-num="410">财富管理业务</a></li>
+							<li><a href="plate4.html" data-num="611">二级市场</a></li>
+							<li><a href="plate5.html" data-num="810" class="mainColor">互联网金融业务</a></li>
+						</ul>
+						<div class="box-line" id="boxline" style="left:810px;"></div>
+					</div>
+					<div class="clear"> 
+						<div class="txt" id="txt1">
+							<div class="title">
+								<p>互联网金融业务 / Internet financial services</p>
+							</div>
+							<p>东亚资产互联网金融业务致力为个人、企业、金融机构提供金融资产交易信息服务，打造综合性互联网金融服务平台。为广大投资者提供多样化的投资理财选择，为个人消费和中小微企业提供安全高效便捷的融资通道，为非标金融资产提供透明便捷的转让平台，为发展普惠金融、改善民生、促进消费、推动中小微企业发展、提高金融资产的流动性、支持创新型国家建设发挥积极的作用。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(".news-line a").on("mouseenter",function(){
+					$(".news-line a").removeClass("mainColor");
+					$(this).addClass("mainColor");
+					$("#boxline").stop().animate({"left":$(this).attr("data-num")},180);
+					/*切换
+					$(".txt").hide();
+					$("#txt"+($(this).parents().index()+1)).show()
+					*/
+				})
+			</script>
+			<!--main end-->
+		</article>
+		<!--body end-->
+		
+		<!--footer start-->
+		<footer class="footer">
+			<div class="footer-box">
+				<div class="floatleft">
+					<a href="index.html" class="logo2"><img src="src/images/index/logo2.png"/></a>
+				</div>
+				<div class="floatleft">
+					<p>Copyright © 2017，All rights reserved. 丨 北京东亚资产资本管理有限公司 丨 京ICP备17008988号</p>
+					<p>电话：400-806-1886 <span>地址：北京市朝阳区化工路59号焦奥中心A座10层</span></p>
+				</div>
+			</div>
+		</footer>
+		<!--footer end-->
+	</body>
+</html>

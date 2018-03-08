@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户中心</title>
+		<link rel="stylesheet" type="text/css" href="src/js/bootstrap/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="src/css/user.css"/>
+		<script src="src/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/laypage/laypage.js"></script>
+		<script src="src/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--head start-->
+		<header class="header">
+			<div class="loginbar">
+				<div class="barbox">
+					<div class="floatleft">
+						客服热线：<span class="number">400-806-1886</span>
+					</div>
+					<div class="floatright">
+						您好，欢迎来到东亚资产！ 
+						<a href="user-index.html" class="login">zhaorongqi</a><span class="fffcolor">|</span> 
+						<a href="register.html">免费注册</a>
+						<a href="novice.html" class="mg40">新手指引</a>
+						<a href="contact.html" class="mg24">关于我们</a>
+					</div>
+				</div>
+			</div>
+			<div class="header-box">
+				<a href="index.html"><img src="src/images/index/logo.png" alt="logo" class="logo"/></a>
+				<nav class="nav-box">
+					<ul class="nav-main" id="nav-main">
+						<li data-num="0"><a href="index.html">首页</a></li>
+						<li data-num="1"><a href="about.html">公司简介</a></li>
+						<li data-num="2">
+							<a href="business.html">业务板块</a>
+							<ul>
+								<li><a href="plate1.html">家族财富及全权委托投资</a></li>
+								<li><a href="plate2.html">资产管理业务</a></li>
+								<li><a href="plate3.html">财富管理业务</a></li>
+								<li><a href="plate4.html">二级市场</a></li>
+								<li><a href="plate5.html" class="noborder">互联网金融业务</a></li>
+							</ul>
+						</li>
+						<li data-num="3"><a href="shares.html" class="mainColor">新三板</a></li>
+						<li data-num="4"><a href="wealth.html">财富中心</a></li>
+						<li data-num="5"><a href="news.html">新闻中心</a></li>
+						<li data-num="6"><a href="personnel.html">人才招聘</a></li>
+						<li data-num="7"><a href="contact.html">联系我们</a></li>
+					</ul>
+					<div class="nav-line" id="navLine" style="left:315px;"></span>
+				</nav>
+			</div>
+		</header>
+		<!--head end-->
+		
+		<!--body start-->
+		<article class="body">
+			<div class="main-box">
+				<div class="floatleft leftmenu">
+					<div>
+						<div class="lm-title">账户中心</div>
+						<div class="lmmain">
+							<a href="user-index.html" class="select">首页</a>
+							<a href="user-debt.html">股票转让</a>
+							<a href="user-order.html">我的预约</a>
+						</div>
+						<div class="lm-title">账户设置</div>
+						<div class="lmmain">
+							<a href="user-personal.html">个人资料</a>
+							<a href="user-password.html">修改密码</a>
+						</div>
+					</div>
+				</div>
+				<div class="floatright rightbody" style="padding: 0;">
+					<div class="user-title">
+						<div class="floatleft imgbox">
+							<img src="src/images/user/user.png" alt="" />
+						</div>
+						<div class="floatleft" style="width:770px;">
+							<table width="100%">
+								<tr>
+									<td colspan="2" class="ut-title">138******1234，您好</td>
+								</tr>
+								<tr>
+									<td class="ut-txt">
+										<span>我发布的股票转让<a href="user-debt.html">2</a>条</span>
+										<span>我的预约<a href="user-order.html">3</a>条</span>
+									</td>
+									<td class="ut-txt" align="right">
+										2018-01-19 13:41:46
+										<a href="#" class="clossbtn1" onclick="closs()">安全退出</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="user-body">
+						<div class="rb-title">我发布的信息</div>
+						<div class="rigthmain">
+							<table class="ub-table" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<td class="shares" width="228">股票名称</td>
+										<td>股票代码</td>
+										<td>股数</td>
+										<td>价格(元)</td>
+										<td>发布时间</td>
+										<td>状态</td>
+										<td>操作</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="shares">华住酒店</td>
+										<td>000596</td>
+										<td>000596</td>
+										<td>75.75</td>
+										<td>2017.11.30</td>
+										<td class="state1">审核中</td>
+										<td><a href="#">编辑</a></td>
+									</tr>
+									<tr>
+										<td class="shares">招商中证白酒指数分级</td>
+										<td>000596</td>
+										<td>000596</td>
+										<td>75.75</td>
+										<td>2017.11.30</td>
+										<td class="state2">已通过</td>
+										<td><a href="#">查看</a></td>
+									</tr>
+									<tr>
+										<td class="shares">新奥混凝</td>
+										<td>000596</td>
+										<td>000596</td>
+										<td>75.75</td>
+										<td>2017.11.30</td>
+										<td class="state3">未通过</td>
+										<td><a href="#">查看</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="text-center">
+								<ul class="pagination">
+								    <li class="prepage"><a href="#">&lt;上一页</a></li>
+								    <li class="active"><a href="#">1</a></li>
+								    <li><a href="#">2</a></li>
+								    <li><a href="#">3</a></li>
+								    <li><a href="#">4</a></li>
+								    <li><a href="#">5</a></li>
+								    <li class="nextpage"><a href="#">下一页&gt;</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function closs(){
+					layer.confirm('确定要退出吗？',{btn: ['确定','取消'] //按钮
+					},function(){
+						window.location.href="login.html"
+					});
+				}
+			</script>
+		</article>
+		<!--body end-->
+		
+		<!--footer start-->
+		<footer class="footer">
+			<div class="footer-box">
+				<div class="floatleft">
+					<a href="index.html" class="logo2"><img src="src/images/index/logo2.png"/></a>
+				</div>
+				<div class="floatleft">
+					<p>Copyright © 2017，All rights reserved. 丨 北京东亚资产资本管理有限公司 丨 京ICP备17008988号</p>
+					<p>电话：400-806-1886 <span>地址：北京市朝阳区化工路59号焦奥中心A座10层</span></p>
+				</div>
+			</div>
+		</footer>
+		<!--footer end-->
+	</body>
+</html>
