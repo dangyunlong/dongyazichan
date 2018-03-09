@@ -5,9 +5,11 @@
 		<title>股权转让</title>
 		<link rel="stylesheet" type="text/css" href="src/js/bootstrap/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="src/css/thigh.css"/>
+		<link rel="stylesheet" type="text/css" href="src/js/laypage/skin/laypage.css"/>
 		<script src="src/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="src/js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="src/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/js/laypage/laypage.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<!--head start-->
@@ -65,7 +67,7 @@
 				<div class="mainbody">
 					<div class="tg-title">
 						<div class="searchbox floatleft">
-							<input type="text" placeholder="请输入股票名称 / 股票代码"/><button class="searchbtn"><img src="src/images/thigh/search.png"/></button>
+							<input type="text" placeholder="请输入股票名称 / 股票代码" id="search"/><button class="searchbtn"><img src="src/images/thigh/search.png"/></button>
 						</div>
 						<div class="floatright rightbox">
 							没有找到想买的新三板股票？
@@ -85,110 +87,13 @@
 									<td align="center">操作</td>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td align="left">01</td>
-									<td align="center">300104</td>
-									<td align="center">乐视网</td>
-									<td align="left">10,000,000.00</td>
-									<td align="center">13.80</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">02</td>
-									<td align="center">300107</td>
-									<td align="center">建新股份</td>
-									<td align="left">13,000,000.00</td>
-									<td align="center">10.19</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">03</td>
-									<td align="center">300158</td>
-									<td align="center">振东制药</td>
-									<td align="left">500,000.00</td>
-									<td align="center">14.25</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">04</td>
-									<td align="center">300431</td>
-									<td align="center">暴风集团</td>
-									<td align="left">200,000.00</td>
-									<td align="center">24.35</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">05</td>
-									<td align="center">300133</td>
-									<td align="center">华策影视</td>
-									<td align="left">200,000.00</td>
-									<td align="center">11.31</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">06</td>
-									<td align="center">300251</td>
-									<td align="center">光线传媒</td>
-									<td align="left">200,000.00</td>
-									<td align="center">12.68</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">07</td>
-									<td align="center">300107</td>
-									<td align="center">建新股份</td>
-									<td align="left">200,000.00</td>
-									<td align="center">10.19</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">08</td>
-									<td align="center">300109</td>
-									<td align="center">新开源</td>
-									<td align="left">200,000.00</td>
-									<td align="center">41.94</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">09</td>
-									<td align="center">300133</td>
-									<td align="center">华策影视</td>
-									<td align="left">200,000.00</td>
-									<td align="center">11.30</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
-								<tr>
-									<td align="left">10</td>
-									<td align="center">300688</td>
-									<td align="center">创业黑马</td>
-									<td align="left">200,000.00</td>
-									<td align="center">56.16</td>
-									<td align="center">登陆后可见</td>
-									<td align="center"><a href="#">买入</a></td>
-								</tr>
+							<tbody id="tg-box">
+								
 							</tbody>
 						</table>
 					</div>
 					<div class="text-center">
-						<ul class="pagination">
-						    <li class="prepage"><a href="#">&lt;上一页</a></li>
-						    <li class="active"><a href="#">1</a></li>
-						    <li><a href="#">2</a></li>
-						    <li><a href="#">3</a></li>
-						    <li><a href="#">4</a></li>
-						    <li><a href="#">5</a></li>
-						    <li class="nextpage"><a href="#">下一页&gt;</a></li>
-						</ul>
+						<div id="pagination" class="pagination"></div>
 					</div>
 				</div>
 			</div>
@@ -216,6 +121,149 @@
 				        }
 				    });
 				}
+				
+				//测试数据
+				var data=[
+				    {
+				        "number":"01",
+				        "code":"300104",
+				        "name":"乐视网",
+				        "money":"10,000,000.00",
+				        "price":"13.80",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"02",
+				        "code":"300107",
+				        "name":"建新股份",
+				        "money":"13,000,000.00",
+				        "price":"10.19",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"03",
+				        "code":"300158",
+				        "name":"振东制药	",
+				        "money":"500,000.00",
+				        "price":"14.25",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"04",
+				        "code":"300431",
+				        "name":"暴风集团",
+				        "money":"200,000.00",
+				        "price":"24.35",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"05",
+				        "code":"300133",
+				        "name":"华策影视",
+				        "money":"200,000.00",
+				        "price":"11.31",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"06",
+				        "code":"300251",
+				        "name":"光线传媒",
+				        "money":"200,000.00",
+				        "price":"12.68",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"08",
+				        "code":"300109",
+				        "name":"新开源",
+				        "money":"200,000.00",
+				        "price":"41.94",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"08",
+				        "code":"300107",
+				        "name":"建新股份",
+				        "money":"200,000.00",
+				        "price":"10.19",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"09",
+				        "code":"300133",
+				        "name":"华策影视",
+				        "money":"200,000.00",
+				        "price":"11.30",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				    {
+				        "number":"10",
+				        "code":"300688",
+				        "name":"创业黑马",
+				        "money":"200,000.00",
+				        "price":"56.16",
+				        "state":"登陆后可见",
+				        "link":"买入"
+				    },
+				]
+				
+				function againPage(data){
+					//分页
+					var nums = 4; //每页出现的数量
+					var pages = Math.ceil(data.length/nums); //得到总页数
+					var thisDate = function(curr){
+					    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+					    var str = '',
+					    last = curr*nums - 1;
+					    last = last >= data.length ? (data.length-1) : last;
+					    
+					    for(var i = (curr*nums - nums); i <= last; i++){
+					    	
+					        str += "<tr>"+"<td align='left'>"+data[i].number+"</td>"+
+							"<td align='center'>"+data[i].code+"</td>"+			
+							"<td align='center'>"+data[i].name+"</td>"+			
+							"<td align='left'>"+data[i].money+"</td>"+			
+							"<td align='center'>"+data[i].price+"</td>"+
+							"<td align='center'>"+data[i].state+"</td>"+
+							"<td align='center'>"+data[i].link+"</td>"+
+							"</tr>"
+					        
+					    }
+					    return str;
+					};
+					//调用分页
+					laypage({
+					    cont: 'pagination',
+					    pages: pages,
+					    jump: function(obj){
+					        document.getElementById('tg-box').innerHTML = thisDate(obj.curr);
+					    }
+					})
+				}
+				againPage(data);
+				
+				$('#search').on('input propertychange',function(){
+					var searchData=[];
+					var that = $(this).val();
+				    for(var item in data){
+				    	//原始json肯定不能动，每次筛选出来的内容存入新的json再执行分页就行了。
+				    	if(data[item].code.indexOf(that)!=-1||data[item].name.indexOf(that)!=-1){
+				    		searchData.push(data[item]);
+				    		setTimeout(againPage(searchData),300);
+				    	}
+				    }
+				});
+				
+				
 			</script>
 		</article>
 		<!--body end-->
