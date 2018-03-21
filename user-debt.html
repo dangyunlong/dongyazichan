@@ -91,47 +91,13 @@
 										<td>操作</td>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td class="shares">华住酒店</td>
-										<td>000596</td>
-										<td>000596</td>
-										<td>75.75</td>
-										<td>2017.11.30</td>
-										<td class="state1">审核中</td>
-										<td><a href="#">编辑</a></td>
-									</tr>
-									<tr>
-										<td class="shares">招商中证白酒指数分级</td>
-										<td>000596</td>
-										<td>000596</td>
-										<td>75.75</td>
-										<td>2017.11.30</td>
-										<td class="state2">已通过</td>
-										<td><a href="#">查看</a></td>
-									</tr>
-									<tr>
-										<td class="shares">新奥混凝</td>
-										<td>000596</td>
-										<td>000596</td>
-										<td>75.75</td>
-										<td>2017.11.30</td>
-										<td class="state3">未通过</td>
-										<td><a href="#">查看</a></td>
-									</tr>
+								<tbody id="shares">
+									
 								</tbody>
 							</table>
 						</div>
 						<div class="text-center">
-							<ul class="pagination">
-							    <li class="prepage"><a href="#">&lt;上一页</a></li>
-							    <li class="active"><a href="#">1</a></li>
-							    <li><a href="#">2</a></li>
-							    <li><a href="#">3</a></li>
-							    <li><a href="#">4</a></li>
-							    <li><a href="#">5</a></li>
-							    <li class="nextpage"><a href="#">下一页&gt;</a></li>
-							</ul>
+							<div id="pagination" class="pagination"></div>
 						</div>
 					</div>
 				</div>
@@ -161,6 +127,95 @@
 				        }
 				    });
 				}
+				
+				
+				//测试数据
+				var data=[
+				    {
+				    	"title":"华住酒店",
+				    	"code":"000596",
+				    	"num":"000596",
+				        "money":"75.75",
+				        "time":"2017.11.30",
+				        "stateclass":"state2",
+				        "state":"已发布"
+				    },
+				    {
+				    	"title":"华住酒店",
+				    	"code":"000596",
+				    	"num":"000596",
+				        "money":"75.75",
+				        "time":"2017.11.30",
+				        "stateclass":"state2",
+				        "state":"已发布"
+				    },
+				    {
+				    	"title":"华住酒店",
+				    	"code":"000596",
+				    	"num":"000596",
+				        "money":"75.75",
+				        "time":"2017.11.30",
+				        "stateclass":"state1",
+				        "state":"未发布"
+				    },
+				    {
+				    	"title":"华住酒店",
+				    	"code":"000596",
+				    	"num":"000596",
+				        "money":"75.75",
+				        "time":"2017.11.30",
+				        "stateclass":"state2",
+				        "state":"已发布"
+				    },
+				    {
+				    	"title":"华住酒店",
+				    	"code":"000596",
+				    	"num":"000596",
+				        "money":"75.75",
+				        "time":"2017.11.30",
+				        "stateclass":"state1",
+				        "state":"未发布"
+				    },
+				]
+				
+				
+				//分页
+				var nums = 3; //每页出现的数量
+				var pages = Math.ceil(data.length/nums); //得到总页数
+				var thisDate = function(curr){
+				    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+				    var str = '',
+				    last = curr*nums - 1;
+				    last = last >= data.length ? (data.length-1) : last;
+				    
+				    for(var i = (curr*nums - nums); i <= last; i++){
+				    	
+				        str += "<tr>"+
+						"<td class='shares'>"+data[i].title+"</td>"+
+						"<td>"+data[i].code+"</td>"+
+						"<td>"+data[i].num+"</td>"+
+						"<td>"+data[i].money+"</td>"+
+						"<td>"+data[i].time+"</td>"+
+						"<td class='"+data[i].stateclass+"'>"+data[i].state+"</td>"+
+						"<td><a href='#'>编辑</a></td>"+
+						"</tr>"
+				        
+				    }
+				    return str;
+				};
+				//调用分页
+				laypage({
+				    cont: 'pagination',
+				    pages: pages,
+				    jump: function(obj){
+				        document.getElementById('shares').innerHTML = thisDate(obj.curr);
+				    }
+				})
+				
+				
+				
+				
+				
 			</script>
 		</article>
 		<!--body end-->

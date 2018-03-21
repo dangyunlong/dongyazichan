@@ -27,10 +27,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {color:#a4a4a4;}
 .tst {clear: both; margin-bottom:20px; overflow: hidden; border-bottom: 1px dashed #ccc; padding-bottom: 20px;}
 .pj-btn {display: block; border:1px solid #b78c6b;color:#b78c6b;width: 159px; height: 40px; line-height: 40px; text-align: center; border-radius: 5px; text-decoration: none;}
 .pj-btn:hover {background:#b78c6b; color: #fff; text-decoration: none;} 
-.t,.tn {font-size: 18px; display: block;}
+.t,.tn {font-size: 18px; display: block;overflow: hidden; height: 25px;}
+.t a {text-decoration: none;}
 .tn {color: #ff4400;}
 .b {font-size: 12px; color: #8f8f8f;}
-.p-b .floatleft{margin-right:52px;}
+.p-b .floatleft{margin-right:29px; width: 90px; overflow: hidden;}
+.p-b .floatleft:last-child {width: 159px;}
 .tst-img {margin-right: 30px;}
 .pj-title span {font-size: 12px; display: inline-block; color: #8fc31f; border-radius: 3px; border:1px solid #8fc31f; padding:0 5px; vertical-align: middle; margin-left:6px; margin-top: -2px;}
 .pj-speedname {font-size: 12px; color: #8f8f8f; float: left;}

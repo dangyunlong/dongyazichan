@@ -31,3 +31,21 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {color:#a4a4a4;}
 .pagination li.prepage a {margin-right: 10px;}
 .text-center {text-align: center;}
 .pagination {margin-bottom: 0;}
+
+/*弹出框*/
+.modal-body {padding-bottom: 0;}
+.modal-header {padding: 0;}
+.modal-dialog {width:550px;}
+.modal-header .regtitle {height: 45px;background: url(../images/login/line.png) no-repeat 13px 14px; line-height: 45px;  padding-left: 30px; padding-right: 30px;}
+.modal-header button.close { margin-top: 10px; margin-right: 15px;}
+.windowbox {width: 100%; margin-top: 20px;}
+table.windowbox td {position: relative;}
+table.windowbox td:nth-child(odd) {padding-right: 30px;}
+table.windowbox td {padding-bottom:25px}
+table.windowbox td input[type="text"]{border: 1px solid #c9c9c9; width: 230px}
+.modal-footer {text-align: center;}
+table.windowbox td label {font-weight: normal;}
+.error {color: red;position: absolute;display: block;width: 100%;top: 35px;display: none;left:5px;font-size: 12px;}
+.btn-primary2 {background: #b78c6b;color: #fff; width: 100px;}
+.btn-primary2:hover {color: #fff; background:#ae7c55;}
+.btn-default { width: 100px;}

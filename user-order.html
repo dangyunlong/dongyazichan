@@ -76,67 +76,11 @@
 				<div class="floatright rightbody" style="padding: 0;">
 					<div class="user-body">
 						<div class="rb-title">我的预约</div>
-						<div class="rigthmain">
-							<!--项目-->
-							<div class="project" id="id1">
-								<div class="pj-title">
-									<div class="floatleft">国元信托-安盈黔南州投</div>
-									<div class="floatright">提交时间：2017.12.12   09:44</div>
-								</div>
-								<div class="pj-body">
-									<table>
-										<tr>
-											<td>预约姓名：<span>张三丰</span></td>
-											<td>联系手机：<span>13912345678</span></td>
-											<td>预约金额：<span class="color1">100万元</span></td>
-											<td align="right"><a href="javascript:void(0)" onclick="delect(1)">删除</a></td>
-										</tr>
-									</table>
-								</div>
-							</div>
-							<div class="project" id="id2">
-								<div class="pj-title">
-									<div class="floatleft">国元信托-安盈黔南州投</div>
-									<div class="floatright">提交时间：2017.12.12   09:44</div>
-								</div>
-								<div class="pj-body">
-									<table>
-										<tr>
-											<td>预约姓名：<span>张三丰</span></td>
-											<td>联系手机：<span>13912345678</span></td>
-											<td>预约金额：<span class="color1">100万元</span></td>
-											<td align="right"><a href="javascript:void(0)" onclick="delect(2)">删除</a></td>
-										</tr>
-									</table>
-								</div>
-							</div>
-							<div class="project" id="id3">
-								<div class="pj-title">
-									<div class="floatleft">国元信托-安盈黔南州投</div>
-									<div class="floatright">提交时间：2017.12.12   09:44</div>
-								</div>
-								<div class="pj-body">
-									<table>
-										<tr>
-											<td>预约姓名：<span>张三丰</span></td>
-											<td>联系手机：<span>13912345678</span></td>
-											<td>预约金额：<span class="color1">100万元</span></td>
-											<td align="right"><a href="javascript:void(0)" onclick="delect(3)">删除</a></td>
-										</tr>
-									</table>
-								</div>
-							</div>
+						<div class="rigthmain" id="rigthmain">
+							
 						</div>
 						<div class="text-center">
-							<ul class="pagination">
-							    <li class="prepage"><a href="#">&lt;上一页</a></li>
-							    <li class="active"><a href="#">1</a></li>
-							    <li><a href="#">2</a></li>
-							    <li><a href="#">3</a></li>
-							    <li><a href="#">4</a></li>
-							    <li><a href="#">5</a></li>
-							    <li class="nextpage"><a href="#">下一页&gt;</a></li>
-							</ul>
+							<div id="pagination" class="pagination"></div>
 						</div>
 					</div>
 				</div>
@@ -164,6 +108,95 @@
 					    });
 					});
 				}
+				
+				//测试数据
+				var data=[
+				    {
+				    	"id":"1",
+				    	"title":"国元信托-安盈黔南州投",
+				    	"time":"2017.12.12 09:44",
+				    	"name":"张三丰",
+				        "phone":"13912345678",
+				        "money":"100万元"	
+				    },
+				    {
+				    	"id":"2",
+				    	"title":"国元信托-安盈黔南州投",
+				    	"time":"2017.12.12 09:44",
+				    	"name":"张三丰",
+				        "phone":"13912345678",
+				        "money":"100万元"	
+				    },
+				    {
+				    	"id":"3",
+				    	"title":"国元信托-安盈黔南州投",
+				    	"time":"2017.12.12 09:44",
+				    	"name":"张三丰",
+				        "phone":"13912345678",
+				        "money":"100万元"	
+				    },
+				    {
+				    	"id":"4",
+				    	"title":"国元信托-安盈黔南州投",
+				    	"time":"2017.12.12 09:44",
+				    	"name":"张三丰",
+				        "phone":"13912345678",
+				        "money":"100万元"	
+				    },
+				    {
+				    	"id":"5",
+				    	"title":"国元信托-安盈黔南州投",
+				    	"time":"2017.12.12 09:44",
+				    	"name":"张三丰",
+				        "phone":"13912345678",
+				        "money":"100万元"	
+				    }
+				]
+				
+				
+				//分页
+				var nums = 3; //每页出现的数量
+				var pages = Math.ceil(data.length/nums); //得到总页数
+				var thisDate = function(curr){
+				    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+				    var str = '',
+				    last = curr*nums - 1;
+				    last = last >= data.length ? (data.length-1) : last;
+				    
+				    for(var i = (curr*nums - nums); i <= last; i++){
+				    	
+				        str += "<div class='project'>"+
+						"<div class='pj-title'>"+
+						"<div class='floatleft'>"+data[i].title+"</div>"+
+						"<div class='floatright'>提交时间："+data[i].time+"</div>"+
+						"</div>"+
+						"<div class='pj-body'>"+
+						"<table>"+
+						"<tr>"+
+						"<td>预约姓名：<span>"+data[i].name+"</span></td>"+
+						"<td>联系手机：<span>"+data[i].phone+"</span></td>"+
+						"<td>预约金额：<span class='color1'>"+data[i].money+"</span></td>"+
+						"<td align='right'>"+
+						"<a href='javascript:void(0)' onclick='delect(1)'>删除</a>"+
+						"</td>"+
+						"</tr>"+
+						"</table>"+
+						"</div>"+
+						"</div>"
+				        
+				    }
+				    return str;
+				};
+				//调用分页
+				laypage({
+				    cont: 'pagination',
+				    pages: pages,
+				    jump: function(obj){
+				        document.getElementById('rigthmain').innerHTML = thisDate(obj.curr);
+				    }
+				})
+				
+				
 			</script>
 		</article>
 		<!--body end-->

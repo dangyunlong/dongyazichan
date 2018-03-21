@@ -207,8 +207,8 @@
 									<div class="error">请输入预约金额</div>
 								</div>
 								<div>
-									<input type="text" placeholder="联系电话" id="phone"/>
-									<div class="error">请填写联系电话</div>
+									<input type="text" placeholder="联系电话" id="phone" value=""/>
+									<div class="error" id="phoneErr">联系电话格式错误</div>
 								</div>
 								<a href="javascript:void(0)" onclick="sub()">立即预约</a>
 								<p>我们承诺对用户的个人信息严格保密</p>
@@ -228,27 +228,37 @@
 			</div>
 			<script type="text/javascript">
 				function sub(){
-					$.ajax({
-				        type:"post",
-				        url:"index.php",
-				        async:true,
-				        data:$("#form1").serialize(),
-				        success:function(data){
-				        	//判断返回值
-				        	//隐藏错误提示
-				        	$(".error").hide();
-				            if(data=="true"){
-				            	layer.msg('预约成功', {icon:1});
-				            }else{
-				            	//显示原有密码错误
-				            	$("#id").siblings(".error").show()
-				            	//显示新密码错误
-				            	$("#num").siblings(".error").show()
-				            	//显示再次输入密码错误
-				            	$("#phone").siblings(".error").show()
-				            }
-				        }
-				    });
+					var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+					var phone=$("#phone").val();
+					if(phone!=""){
+						if(myreg.test(phone)){
+							$.ajax({
+						        type:"post",
+						        url:"index.php",
+						        async:true,
+						        data:$("#form1").serialize(),
+						        success:function(data){
+						        	//判断返回值
+						        	//隐藏错误提示
+						        	$(".error").hide();
+						            if(data=="true"){
+						            	$("#phone").siblings(".error").hide()
+						            	layer.msg('预约成功', {icon:1});
+						            }else{
+						            	$("#id").siblings(".error").show()
+						            	$("#num").siblings(".error").show()
+						            	$("#phone").siblings(".error").show()
+						            }
+						        }
+						    });
+						}else{
+							$("#phoneErr").text("手机号格式错误！");
+							$("#phone").siblings(".error").show()
+						}
+					}else{
+						$("#phoneErr").text("手机号不能为空！");
+						$("#phoneErr").show();
+					}
 				}
 			</script>
 		</article>

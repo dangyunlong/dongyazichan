@@ -8,6 +8,9 @@
 		<script src="src/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="src/js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="src/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		
+		<link rel="stylesheet" type="text/css" href="src/js/laypage/skin/laypage.css"/>
+		<script src="src/js/laypage/laypage.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<!--head start-->
@@ -58,277 +61,182 @@
 		<article class="body">
 			<div class="main-box">
 				<div class="regtitle">财富中心</div>
-				<div class="tg-tab">
-					<div>
-						产品状态：<a href="javascript:void(0)" class="select">不限(11)</a><a href="javascript:void(0)">基金(11)</a><a href="javascript:void(0)">信托(11)</a>
+				<div class="tg-tab" id="tg-tab">
+					<div data-id="1" id="tgtab1">
+						产品状态：
+						<a href="javascript:void(0)" class="select" data-val="0">不限</a>
+						<a href="javascript:void(0)" data-val="1">基金</a>
+						<a href="javascript:void(0)" data-val="2">资管</a>
+						<a href="javascript:void(0)" data-val="3">信托</a>
 					</div>
-					<div>
-						产品状态：<a href="javascript:void(0)" class="select">不限(11)</a><a href="javascript:void(0)">预热(11)</a><a href="javascript:void(0)">在售(11)</a>
+					<div data-id="2" id="tgtab2">
+						产品状态：
+						<a href="javascript:void(0)" class="select" data-val="0">不限</a>
+						<a href="javascript:void(0)" data-val="1">预热</a>
+						<a href="javascript:void(0)" data-val="2">在售</a>
 					</div>
-					<div>
-						产品收益：<a href="javascript:void(0)" class="select">不限</a><a href="javascript:void(0)">7%以下</a><a href="javascript:void(0)">7-7.9%</a><a href="javascript:void(0)">8-8.9%</a><a href="javascript:void(0)">9-9.9%</a><a href="javascript:void(0)">10%及以上</a><a href="javascript:void(0)">浮动</a>
+					<div data-id="3" id="tgtab3">
+						产品收益：<a href="javascript:void(0)" class="select" data-val="0">不限</a>
+						<a href="javascript:void(0)" data-val="1">7%以下</a>
+						<a href="javascript:void(0)" data-val="2">7-7.9%</a>
+						<a href="javascript:void(0)" data-val="3">8-8.9%</a>
+						<a href="javascript:void(0)" data-val="4">9-9.9%</a>
+						<a href="javascript:void(0)" data-val="5">10%及以上</a>
+						<a href="javascript:void(0)" data-val="6">浮动</a>
+						<input type="hidden" value="0" id="cp3"/>
 					</div>
-					<div>
-						产品期限：<a href="javascript:void(0)" class="select">不限</a><a href="javascript:void(0)">12个月以内</a><a href="javascript:void(0)">12个月</a><a href="javascript:void(0)">13-23个月</a><a href="javascript:void(0)">24个月</a><a href="javascript:void(0)">24个月以上</a>
+					<div data-id="4" id="tgtab4">
+						产品期限：
+						<a href="javascript:void(0)" class="select" data-val="0">不限</a>
+						<a href="javascript:void(0)" data-val="1">1个月</a>
+						<a href="javascript:void(0)" data-val="2">3个月</a>
+						<a href="javascript:void(0)" data-val="3">6个月</a>
+						<a href="javascript:void(0)" data-val="4">12个月</a>
+						<a href="javascript:void(0)" data-val="5">24个月</a>
+						<a href="javascript:void(0)" data-val="6">24个月以上</a>
 					</div>
 				</div>
-				<div class="condition">
-					<a href="javascript:void(0)">
+				<div class="condition" id="condition">
+					<a href="javascript:void(0)" data-val="0">
 						<span>发布时间</span>
 						<span><img src="src/images/trust/up.png"/></span>
+						<input type="hidden" value="0" id="state5"/>
 					</a>
-					<a href="javascript:void(0)">
+					<a href="javascript:void(0)" data-val="1">
 						<span>预期收益</span>
 						<span><img src="src/images/trust/up.png"/></span>
+						<input type="hidden" value="0" id="state6"/>
 					</a>
-					<a href="javascript:void(0)">
+					<a href="javascript:void(0)" data-val="2">
 						<span>产品期限</span>
-						<span><img src="src/images/trust/down.png"/></span>
+						<span><img src="src/images/trust/up.png"/></span>
+						<input type="hidden" value="0" id="state7"/>
 					</a>
 				</div>
+				<script type="text/javascript">
+					
+					var state1="0";
+					var state2="0";
+					var state3="0";
+					var state4="0";
+					//获取排序的值
+					var state5=$("#state5").val();
+					var state6=$("#state6").val();
+					var state7=$("#state7").val();
+					
+					$("#tg-tab").find("a").click(function(){
+						$(this).siblings("a").removeClass("select");
+						$(this).addClass("select");
+						//alert($(this).attr("data-val"))
+						if($(this).parent("div").attr("data-id")==1){
+							state1=$(this).attr("data-val");
+						}
+						if($(this).parent("div").attr("data-id")==2){
+							state2=$(this).attr("data-val");
+						}
+						if($(this).parent("div").attr("data-id")==3){
+							state3=$(this).attr("data-val");
+						}
+						if($(this).parent("div").attr("data-id")==4){
+							state4=$(this).attr("data-val");
+						}
+						goUrl();
+					})
+					$("#condition").find("a").click(function(){
+						//获取图片地址
+						var　that=$(this);
+						var img=$(this).children().children("img");
+						if(img.attr("src")=="src/images/trust/down.png"){
+							img.attr("src","src/images/trust/up.png");
+							that.children("input").val("0");
+							goUrl();
+							return true;
+						}else{
+							img.attr("src","src/images/trust/down.png");
+							that.children("input").val("1")
+							goUrl();
+							return true;
+						}
+					})
+					
+					function goUrl(){
+						state5=$("#state5").val();
+						state6=$("#state6").val();
+						state7=$("#state7").val();
+						location.href = 'a.asp?state1='+state1+'&state2='+state2+'&state3='+state3+'&state4='+state4+'&state5='+state5+'&state6='+state6+'&state7='+state7;
+					}
+				
+					
+					
+
+					//还原选项
+					$(function(){
+						function GetRequest() {  
+						    var url = location.search; //获取url中"?"符后的字串  
+						    var theRequest = new Object();  
+						    if (url.indexOf("?") != -1) {  
+						        var str = url.substr(1);  
+						        strs = str.split("&");  
+						        for (var i = 0; i < strs.length; i++) {  
+						            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);  
+						        }  
+						    }  
+						    return theRequest;  
+						}  
+						var Request = new Object();  
+						Request = GetRequest(); 
+						//先判断参数不能为空 再赋值
+						if(Request["state1"]!=undefined&&Request["state2"]!=undefined&&Request["state3"]!=undefined&&Request["state4"]!=undefined&&Request["state5"]!=undefined&&Request["state6"]!=undefined&&Request["state7"]!=undefined){
+							state1=Request["state1"];
+							state2=Request["state2"];
+							state3=Request["state3"];
+							state4=Request["state4"];
+							state5=Request["state5"];
+							state6=Request["state6"];
+							state7=Request["state7"];
+							
+							$("#tgtab1").find("a").removeClass("select").eq(Request["state1"]).addClass("select");
+							$("#tgtab2").find("a").removeClass("select").eq(Request["state2"]).addClass("select");
+							$("#tgtab3").find("a").removeClass("select").eq(Request["state3"]).addClass("select");
+							$("#tgtab4").find("a").removeClass("select").eq(Request["state4"]).addClass("select");
+							
+							if(state5==0){
+								$("#condition").find("img").eq(0).attr("src","src/images/trust/up.png");
+								$("#state5").val("0")
+							}else{
+								$("#condition").find("img").eq(0).attr("src","src/images/trust/down.png");
+								$("#state5").val("1")
+							}
+							
+							if(state6==0){
+								$("#condition").find("img").eq(1).attr("src","src/images/trust/up.png");
+								$("#state6").val("0")
+							}else{
+								$("#condition").find("img").eq(1).attr("src","src/images/trust/down.png");
+								$("#state6").val("1")
+							}
+							
+							if(state7==0){
+								$("#condition").find("img").eq(2).attr("src","src/images/trust/up.png");
+								$("#state7").val("0")
+							}else{
+								$("#condition").find("img").eq(2).attr("src","src/images/trust/down.png");
+								$("#state7").val("1")
+							}
+							
+						}
+					})
+					
+					
+					
+					
+				</script>
 				<div class="mainbody">
-					<!--project start-->
-					<div class="tst">
-						<div class="floatleft tst-img">
-							<a href="wealth-details.html"><img src="src/images/trust/img.png" width="110" height="110"/></a>
-						</div>
-						<div class="floatleft">
-							<div class="project">
-								<div class="p-t">
-									<div class="floatleft">
-										<div class="pj-title"><a href="wealth-details.html">北京信托-锦钰026号</a><span>预热</span></div>
-										<div class="pj-time">本期起售日：2017/12/15</div>
-									</div>
-									<div class="floatright">
-										<div class="pj-speedname">募集进度</div>
-										<div class="pj-speedbox">
-											<span class="pj-speed" style="width: 60%;"><span class="jdnum">60%</span></span>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-								<div class="clear p-b">
-									<div class="floatleft">
-										<span class="tn">8%</span>
-										<span class="b">最高预期收益 </span>
-									</div>
-									<div class="floatleft">
-										<span class="t">300万</span>
-										<span class="b">起投金额</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">24个月</span>
-										<span class="b">产品期限 </span>
-									</div>
-									<div class="floatleft linebox">
-										<span class="t">登录可见</span>
-										<span class="b">最高返佣比例</span>
-										<span class="line"></span>
-									</div>
-									<div class="floatleft">
-										<span class="t">工商企业</span>
-										<span class="b">投资领域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">广东 深圳</span>
-										<span class="b">投资区域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">小额畅打</span>
-										<span class="b">大小额配比</span>
-									</div>
-									<div class="floatleft" style="margin-right:0;">
-										<a href="wealth-details.html" class="pj-btn">我要咨询</a>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div id="mainbox">
+						
 					</div>
-					<!--project end-->
-					<!--project start-->
-					<div class="tst">
-						<div class="floatleft tst-img">
-							<a href="wealth-details.html"><img src="src/images/trust/img.png" width="110" height="110"/></a>
-						</div>
-						<div class="floatleft">
-							<div class="project">
-								<div class="p-t">
-									<div class="floatleft">
-										<div class="pj-title"><a href="wealth-details.html">北京信托-锦钰026号</a><span>预热</span></div>
-										<div class="pj-time">本期起售日：2017/12/15</div>
-									</div>
-									<div class="floatright">
-										<div class="pj-speedname">募集进度</div>
-										<div class="pj-speedbox">
-											<span class="pj-speed" style="width: 60%;"><span class="jdnum">60%</span></span>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-								<div class="clear p-b">
-									<div class="floatleft">
-										<span class="tn">8%</span>
-										<span class="b">最高预期收益 </span>
-									</div>
-									<div class="floatleft">
-										<span class="t">300万</span>
-										<span class="b">起投金额</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">24个月</span>
-										<span class="b">产品期限 </span>
-									</div>
-									<div class="floatleft linebox">
-										<span class="t">登录可见</span>
-										<span class="b">最高返佣比例</span>
-										<span class="line"></span>
-									</div>
-									<div class="floatleft">
-										<span class="t">工商企业</span>
-										<span class="b">投资领域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">广东 深圳</span>
-										<span class="b">投资区域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">小额畅打</span>
-										<span class="b">大小额配比</span>
-									</div>
-									<div class="floatleft" style="margin-right:0;">
-										<a href="wealth-details.html" class="pj-btn">我要咨询</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--project end-->
-					<!--project start-->
-					<div class="tst">
-						<div class="floatleft tst-img">
-							<a href="wealth-details.html"><img src="src/images/trust/img.png" width="110" height="110"/></a>
-						</div>
-						<div class="floatleft">
-							<div class="project">
-								<div class="p-t">
-									<div class="floatleft">
-										<div class="pj-title"><a href="wealth-details.html">北京信托-锦钰026号</a><span>预热</span></div>
-										<div class="pj-time">本期起售日：2017/12/15</div>
-									</div>
-									<div class="floatright">
-										<div class="pj-speedname">募集进度</div>
-										<div class="pj-speedbox">
-											<span class="pj-speed" style="width: 60%;"><span class="jdnum">60%</span></span>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-								<div class="clear p-b">
-									<div class="floatleft">
-										<span class="tn">8%</span>
-										<span class="b">最高预期收益 </span>
-									</div>
-									<div class="floatleft">
-										<span class="t">300万</span>
-										<span class="b">起投金额</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">24个月</span>
-										<span class="b">产品期限 </span>
-									</div>
-									<div class="floatleft linebox">
-										<span class="t">登录可见</span>
-										<span class="b">最高返佣比例</span>
-										<span class="line"></span>
-									</div>
-									<div class="floatleft">
-										<span class="t">工商企业</span>
-										<span class="b">投资领域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">广东 深圳</span>
-										<span class="b">投资区域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">小额畅打</span>
-										<span class="b">大小额配比</span>
-									</div>
-									<div class="floatleft" style="margin-right:0;">
-										<a href="wealth-details.html" class="pj-btn">我要咨询</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--project end-->
-					<!--project start-->
-					<div class="tst">
-						<div class="floatleft tst-img">
-							<a href="wealth-details.html"><img src="src/images/trust/img.png" width="110" height="110"/></a>
-						</div>
-						<div class="floatleft">
-							<div class="project">
-								<div class="p-t">
-									<div class="floatleft">
-										<div class="pj-title"><a href="wealth-details.html">北京信托-锦钰026号</a><span>预热</span></div>
-										<div class="pj-time">本期起售日：2017/12/15</div>
-									</div>
-									<div class="floatright">
-										<div class="pj-speedname">募集进度</div>
-										<div class="pj-speedbox">
-											<span class="pj-speed" style="width: 60%;"><span class="jdnum">60%</span></span>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-								<div class="clear p-b">
-									<div class="floatleft">
-										<span class="tn">8%</span>
-										<span class="b">最高预期收益 </span>
-									</div>
-									<div class="floatleft">
-										<span class="t">300万</span>
-										<span class="b">起投金额</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">24个月</span>
-										<span class="b">产品期限 </span>
-									</div>
-									<div class="floatleft linebox">
-										<span class="t">登录可见</span>
-										<span class="b">最高返佣比例</span>
-										<span class="line"></span>
-									</div>
-									<div class="floatleft">
-										<span class="t">工商企业</span>
-										<span class="b">投资领域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">广东 深圳</span>
-										<span class="b">投资区域</span>
-									</div>
-									<div class="floatleft">
-										<span class="t">小额畅打</span>
-										<span class="b">大小额配比</span>
-									</div>
-									<div class="floatleft" style="margin-right:0;">
-										<a href="wealth-details.html" class="pj-btn">我要咨询</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--project end-->
 					<div class="text-center">
-						<ul class="pagination">
-						    <li class="prepage"><a href="#">&lt;上一页</a></li>
-						    <li class="active"><a href="#">1</a></li>
-						    <li><a href="#">2</a></li>
-						    <li><a href="#">3</a></li>
-						    <li><a href="#">4</a></li>
-						    <li><a href="#">5</a></li>
-						    <li class="nextpage"><a href="#">下一页&gt;</a></li>
-						</ul>
+						<div id="pagination" class="pagination"></div>
 					</div>
 				</div>
 			</div>
@@ -347,6 +255,154 @@
 				</div>
 			</div>
 		</footer>
+		
+		<script type="text/javascript">
+				//测试数据
+				var data=[
+				    {
+				    	"img":"src/images/trust/img.png",
+				    	"state":"预热",
+				    	"link":"wealth-details.html",
+				        "title":"北京信托-锦钰026号",
+				        "time":"2017/12/15",
+				        "pre":"8%",
+				        "money":"300万",
+				        "limit":"24个月",
+				        //"prop":"登录可见",
+				        "prop":"<a href='login.html'>登陆后可见</a>",
+				        "field":"工商企业",
+				        "region":"广东 深圳",
+				        "mixture":"小额畅打",
+				        "speed":"60%",
+				    },
+				    {
+				    	"img":"src/images/trust/img.png",
+				    	"state":"预热",
+				    	"link":"wealth-details.html",
+				        "title":"北京信托-锦钰026号",
+				        "time":"2017/12/15",
+				        "pre":"8%",
+				        "money":"300万",
+				        "limit":"24个月",
+				        "prop":"登录可见",
+				        "field":"工商企业",
+				        "region":"广东 深圳",
+				        "mixture":"小额畅打",
+				        "speed":"60%",
+				    },
+				    {
+				    	"img":"src/images/trust/img.png",
+				    	"state":"预热",
+				    	"link":"wealth-details.html",
+				        "title":"北京信托-锦钰026号",
+				        "time":"2017/12/15",
+				        "pre":"8%",
+				        "money":"300万",
+				        "limit":"24个月",
+				        "prop":"登录可见",
+				        "field":"工商企业",
+				        "region":"广东 深圳",
+				        "mixture":"小额畅打",
+				        "speed":"60%",
+				    },
+				    {
+				    	"img":"src/images/trust/img.png",
+				    	"state":"预热",
+				    	"link":"wealth-details.html",
+				        "title":"北京信托-锦钰026号",
+				        "time":"2017/12/15",
+				        "pre":"8%",
+				        "money":"300万",
+				        "limit":"24个月",
+				        "prop":"登录可见",
+				        "field":"工商企业",
+				        "region":"广东 深圳",
+				        "mixture":"小额畅打",
+				        "speed":"60%",
+				    },
+				]
+				
+				
+				//分页
+				var nums = 3; //每页出现的数量
+				var pages = Math.ceil(data.length/nums); //得到总页数
+				var thisDate = function(curr){
+				    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+				    var str = '',
+				    last = curr*nums - 1;
+				    last = last >= data.length ? (data.length-1) : last;
+				    
+				    for(var i = (curr*nums - nums); i <= last; i++){
+				    	
+				        str += "<div class='tst'>"+
+						"<div class='floatleft tst-img'>"+
+						"<a href='"+data[i].link+"'><img src='"+data[i].img+"' width='110' height='110'/></a>"+
+						"</div>"+
+						"<div class='floatleft'>"+
+						"<div class='project'>"+
+						"<div class='p-t'>"+
+						"<div class='floatleft'>"+
+						"<div class='pj-title'><a href='wealth-details.html'>"+data[i].title+"</a><span>"+data[i].state+"</span></div>"+
+						"<div class='pj-time'>本期起售日："+data[i].time+"</div>"+
+						"</div>"+
+						"<div class='floatright'>"+
+						"<div class='pj-speedname'>募集进度</div>"+
+						"<div class='pj-speedbox'>"+
+						"<span class='pj-speed' style='width:"+data[i].speed+";'><span class='jdnum'>"+data[i].speed+"</span></span>"+
+						"</div>"+
+						"</div>"+
+						"</div>"+
+						"<div class='clear'></div>"+
+						"<div class='clear p-b'>"+
+						"<div class='floatleft'>"+
+						"<span class='tn'>"+data[i].pre+"</span>"+
+						"<span class='b'>最高预期收益 </span>"+
+						"</div>"+
+						"<div class='floatleft'>"+
+						"<span class='t'>"+data[i].money+"</span>"+
+						"<span class='b'>起投金额</span>"+
+						"</div>"+
+						"<div class='floatleft'>"+
+						"<span class='t'>"+data[i].limit+"</span>"+
+						"<span class='b'>产品期限 </span>"+
+						"</div>"+
+						"<div class='floatleft linebox'>"+
+						"<span class='t'>"+data[i].prop+"</span>"+
+						"<span class='b'>最高返佣比例</span>"+
+						"<span class='line'></span>"+
+						"</div>"+
+						"<div class='floatleft'>"+
+						"<span class='t'>"+data[i].field+"</span>"+
+						"<span class='b'>投资领域</span>"+
+						"</div>"+
+						"<div class='floatleft'>"+
+						"<span class='t'>"+data[i].region+"</span>"+
+						"<span class='b'>投资区域</span>"+
+						"</div>"+
+						"<div class='floatleft'>"+
+						"<span class='t'>"+data[i].mixture+"</span>"+
+						"<span class='b'>大小额配比</span>"+
+						"</div>"+
+						"<div class='floatleft' style='margin-right:0;'>"+
+						"<a href='"+data[i].link+"' class='pj-btn'>我要咨询</a>"+
+						"</div>"+
+						"</div>"+
+						"</div>"+
+						"</div>"+
+						"</div>"
+				        
+				    }
+				    return str;
+				};
+				//调用分页
+				laypage({
+				    cont: 'pagination',
+				    pages: pages,
+				    jump: function(obj){
+				        document.getElementById('mainbox').innerHTML = thisDate(obj.curr);
+				    }
+				})
+		</script>
 		<!--footer end-->
 	</body>
 </html>
