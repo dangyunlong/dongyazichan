@@ -260,6 +260,8 @@
 				//测试数据
 				var data=[
 				    {
+				    	"css":"block",
+				    	"src":"src/images/wealth/recommend.png",
 				    	"img":"src/images/trust/img.png",
 				    	"state":"预热",
 				    	"link":"wealth-details.html",
@@ -276,6 +278,8 @@
 				        "speed":"60%",
 				    },
 				    {
+				    	"css":"none",
+				    	"src":"#",
 				    	"img":"src/images/trust/img.png",
 				    	"state":"预热",
 				    	"link":"wealth-details.html",
@@ -291,6 +295,8 @@
 				        "speed":"60%",
 				    },
 				    {
+				    	"css":"block",
+				    	"src":"src/images/wealth/heat.png",
 				    	"img":"src/images/trust/img.png",
 				    	"state":"预热",
 				    	"link":"wealth-details.html",
@@ -306,6 +312,8 @@
 				        "speed":"60%",
 				    },
 				    {
+				    	"css":"none",
+				    	"src":"#",
 				    	"img":"src/images/trust/img.png",
 				    	"state":"预热",
 				    	"link":"wealth-details.html",
@@ -335,6 +343,7 @@
 				    for(var i = (curr*nums - nums); i <= last; i++){
 				    	
 				        str += "<div class='tst'>"+
+				        "<img src='"+data[i].src+"' class="+data[i].css+" />"+
 						"<div class='floatleft tst-img'>"+
 						"<a href='"+data[i].link+"'><img src='"+data[i].img+"' width='110' height='110'/></a>"+
 						"</div>"+
